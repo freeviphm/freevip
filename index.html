@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>App Download Guide - Complete Tutorial</title>
+    <style>
+        :root {
+            --primary: #6200ee;
+            --primary-dark: #3700b3;
+            --secondary: #03dac6;
+            --background: #121212;
+            --surface: #1e1e1e;
+            --error: #cf6679;
+            --on-primary: #ffffff;
+            --on-secondary: #000000;
+            --on-background: #ffffff;
+            --on-surface: #ffffff;
+            --on-error: #000000;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--background);
+            color: var(--on-background);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 15px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: var(--secondary);
+            margin: 0 0 10px 0;
+            font-size: 1.8rem;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-top: 25px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
+            font-size: 1.4rem;
+        }
+        
+        h3 {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+        
+        .card {
+            background-color: var(--surface);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 12px;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background-color: var(--primary);
+            color: var(--on-primary);
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 12px;
+            flex-shrink: 0;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .download-btn {
+            display: block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--on-primary);
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1rem;
+        }
+        
+        .warning {
+            background-color: rgba(207, 102, 121, 0.2);
+            border-left: 4px solid var(--error);
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.9rem;
+        }
+        
+        .telegram-contact {
+            display: flex;
+            align-items: center;
+            background-color: var(--surface);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .telegram-icon {
+            font-size: 24px;
+            margin-right: 12px;
+            color: #0088cc;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .screenshot {
+            width: 100%;
+            border-radius: 6px;
+            margin: 10px 0;
+            border: 1px solid #333;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            margin: 15px 0;
+            border-radius: 6px;
+            background: #000;
+        }
+        
+        .video-container iframe,
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-note {
+            font-size: 0.85rem;
+            color: #aaa;
+            text-align: center;
+            margin-top: -5px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .feature {
+            background-color: var(--surface);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        /* Remove hover effects for mobile */
+        .card:hover, .download-btn:hover, .feature:hover, .telegram-contact:hover {
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* Add touch feedback */
+        .download-btn:active {
+            transform: scale(0.98);
+            opacity: 0.9;
+        }
+        
+        /* Better spacing for mobile */
+        p {
+            margin: 8px 0;
+        }
+        
+        /* Make links more tappable */
+        a {
+            color: var(--secondary);
+            text-decoration: none;
+            padding: 2px 0;
+        }
+        
+        /* Adjust header spacing */
+        header p {
+            margin: 5px 0 0 0;
+            font-size: 0.95rem;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>App Download Guide</h1>
+            <p>Complete step-by-step tutorial with video instructions</p>
+        </header>
+        
+        <div class="feature-grid">
+            <div class="feature">
+                <div class="feature-icon">📥</div>
+                <h3>Easy Download</h3>
+                <p>One-click download with direct link</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🛡️</div>
+                <h3>Play Protect Guide</h3>
+                <p>Video tutorial to disable protection</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <h3>Installation Help</h3>
+                <p>Complete installation video guide</p>
+            </div>
+        </div>
+        
+        <!-- Play Protect Section First -->
+        <div class="card">
+            <h2>🛡️ How to Disable Google Play Protect</h2>
+            
+            <!-- Replace with your actual video URL -->
+            <div class="video-container">
+                <video controls poster="https://example.com/playprotect-thumbnail.jpg">
+                    <source src="https://example.com/your-playprotect-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p class="video-note">Watch how to temporarily disable Play Protect for installation</p>
+            
+            <h3>Written Steps:</h3>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div>
+                    <strong>Open Google Play Store</strong>
+                    <p>Tap on the Play Store app icon to open it.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>
+                    <strong>Go to Play Protect settings</strong>
+                    <p>Tap your profile icon → "Play Protect" → Settings icon (gear).</p>
+                    <img src="https://example.com/play-protect.jpg" alt="Play Protect settings" class="screenshot">
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div>
+                    <strong>Disable scanning</strong>
+                    <p>Turn off "Scan apps with Play Protect" and confirm if prompted.</p>
+                </div>
+            </div>
+            
+            <div class="warning">
+                <strong>Important:</strong> Remember to turn Play Protect back on after installing our app for your device's security.
+            </div>
+        </div>
+        
+        <!-- Download Section Second -->
+        <div class="card">
+            <h2>📲 Download the App</h2>
+            <p>Click the button below to download our application:</p>
+            
+            <a href="https://example.com/yourapp.apk" class="download-btn">⬇️ Download App Now</a>
+            
+            <div class="warning">
+                <strong>Note:</strong> If you're downloading from Chrome, you might need to allow installations from unknown sources.
+            </div>
+        </div>
+        
+        <!-- Installation Guide Section Third -->
+        <div class="card">
+            <h2>🎥 How to Install the App</h2>
+            
+            <!-- Replace with your actual video URL -->
+            <div class="video-container">
+                <video controls poster="https://example.com/install-thumbnail.jpg">
+                    <source src="https://example.com/your-install-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p class="video-note">Watch the complete installation process step-by-step</p>
+            
+            <h3>Written Steps:</h3>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div>
+                    <strong>Open the downloaded APK file</strong>
+                    <p>After download is complete, open the notification or find the file in your Downloads folder.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>
+                    <strong>Allow installation from unknown sources</strong>
+                    <p>If prompted, go to Settings and enable "Install unknown apps" for your browser or file manager.</p>
+                    <img src="https://example.com/unknown-sources.jpg" alt="Unknown sources setting" class="screenshot">
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div>
+                    <strong>Complete the installation</strong>
+                    <p>Tap "Install" and wait for the process to finish. Then open the app.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="telegram-contact">
+            <div class="telegram-icon">📨</div>
+            <div>
+                <h3>Need Help? Contact Us!</h3>
+                <p>Message us on Telegram for instant support: <a href="https://t.me/yourusername" style="color: var(--secondary); font-weight: bold;">@yourusername</a></p>
+                <p>We're available 24/7 to assist you with installation</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 YourAppName. All rights reserved.</p>
+        <p>Version 1.0 | Last updated: <span id="current-date"></span></p>
+    </footer>
+
+    <script>
+        // Add current date to footer
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', {
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric'
+        });
+    </script>
+</body>
+</html>
